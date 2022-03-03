@@ -3,7 +3,7 @@ package http
 import (
 	"encoding/json"
 	"errors"
-	"io/ioutil"
+	"io"
 	"net/http"
 )
 
@@ -17,7 +17,7 @@ type OnlyOfficeCallback struct {
 }
 
 var onlyofficeCallbackHandler = withUser(func(w http.ResponseWriter, r *http.Request, d *data) (int, error) {
-	body, err := ioutil.ReadAll(r.Body)
+	body, err := io.ReadAll(r.Body)
 	if err != nil {
 		return http.StatusInternalServerError, err
 	}
