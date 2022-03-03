@@ -17,7 +17,7 @@ For other features not related to this fork, please refer to the original [repo]
 
 ## Install
 
-Installation with docker is recommanded, all the images are available in the [github container registry](https://github.com/drosoCode?tab=packages&repo_name=filebrowser).
+Installation with docker is recommanded, all the images are available in the [github container registry](https://github.com/drosoCode/filebrowser/pkgs/container/filebrowser).
 
 You can use the following example to create your `docker-compose.yml` (using traefik as reverse proxy).
 
@@ -27,7 +27,7 @@ Then login as admin into filebrowser, go in the general settings, enable onlyoff
 version: '3.7'
 services:
   filebrowser:
-    image: ghcr.io/drosocode/filebrowser
+    image: ghcr.io/drosocode/filebrowser:v2
     restart: unless-stopped
     volumes:
       - /path/to/root:/srv
