@@ -44,6 +44,9 @@ func addConfigFlags(flags *pflag.FlagSet) {
 	flags.String("branding.color", "", "set the theme color")
 	flags.String("branding.files", "", "path to directory with images and custom styles")
 	flags.Bool("branding.disableExternal", false, "disable external links such as GitHub links")
+
+	flags.String("onlyoffice.url", "", "URL to the OnlyOffice document server (blank for disabled)")
+	flags.String("onlyoffice.jwt", "", "JWT Token")
 }
 
 //nolint:gocyclo
@@ -161,6 +164,9 @@ func printSettings(ser *settings.Server, set *settings.Settings, auther auth.Aut
 	fmt.Fprintf(w, "\t\tDelete:\t%t\n", set.Defaults.Perm.Delete)
 	fmt.Fprintf(w, "\t\tShare:\t%t\n", set.Defaults.Perm.Share)
 	fmt.Fprintf(w, "\t\tDownload:\t%t\n", set.Defaults.Perm.Download)
+	fmt.Fprintln(w, "\nOnlyOffice:")
+	fmt.Fprintf(w, "\tURL:\t%s\n", set.OnlyOffice.Url)
+	fmt.Fprintf(w, "\tJWT:\t%s\n", set.OnlyOffice.Jwt)
 	w.Flush()
 
 	b, err := json.MarshalIndent(auther, "", "  ")

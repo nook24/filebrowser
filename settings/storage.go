@@ -26,6 +26,7 @@ func NewStorage(back StorageBackend) *Storage {
 
 // Get returns the settings for the current instance.
 func (s *Storage) Get() (*Settings, error) {
+
 	return s.back.Get()
 }
 

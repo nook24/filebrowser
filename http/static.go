@@ -43,7 +43,8 @@ func handleWithStaticData(w http.ResponseWriter, _ *http.Request, d *data, fSys 
 		"EnableThumbs":    d.server.EnableThumbnails,
 		"ResizePreview":   d.server.ResizePreview,
 		"EnableExec":      d.server.EnableExec,
-		"OnlyOffice":      d.settings.OnlyOffice,
+		"OnlyOfficeUrl":   d.settings.OnlyOffice.Url,
+		"OnlyOfficeJwt":   d.settings.OnlyOffice.Jwt,
 	}
 
 	if d.settings.Branding.Files != "" {

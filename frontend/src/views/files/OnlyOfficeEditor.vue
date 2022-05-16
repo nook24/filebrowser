@@ -21,7 +21,7 @@
 <script>
 import { mapState } from "vuex";
 import url from "@/utils/url";
-import { baseURL, onlyOffice } from "@/utils/constants";
+import { baseURL, onlyOfficeUrl } from "@/utils/constants";
 
 import HeaderBar from "@/components/header/HeaderBar";
 import Action from "@/components/header/Action";
@@ -80,7 +80,7 @@ export default {
     let onlyofficeScript = document.createElement("script");
     onlyofficeScript.setAttribute(
       "src",
-      `${onlyOffice}/web-apps/apps/api/documents/api.js`
+      `${onlyOfficeUrl}/web-apps/apps/api/documents/api.js`
     );
     document.head.appendChild(onlyofficeScript);
 
@@ -120,6 +120,7 @@ export default {
           mode: this.user.perm.modify ? "edit" : "view"
         }
       };
+
       this.editor = new DocsAPI.DocEditor("editor", config);
       /*eslint-enable */
     };
